@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:compat="http://schemas.android.com/tools"
+    >
+    <item android:id="@+id/action_settings" android:title="@string/action_settings"
+        android:orderInCategory="100" compat:showAsAction="never" />
+
+    <item android:id="@+id/back"
+        android:icon="@drawable/ic_action_back"
+        android:title="back"
+        compat:showasAction="always"
+        />
+
+    <item android:id="@+id/tick"
+        android:icon="@drawable/ic_action_accept"
+        android:title="done"
+        compat:showasAction="always"
+        />
+</menu>

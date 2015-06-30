@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mojokarma.mojokarma" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme.Base" >
+        <activity
+            android:name=".SplashScreen"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".apploud"
+            android:label="@string/app_name" >
+
+            <!-- android:theme="@android:style/Theme.Holo.Light.NoActionBar" -->
+            <intent-filter>
+                <action android:name="android.intent.action.APPL0UD" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".TimeLine"
+            android:label="@string/app_name" >
+
+            <!-- android:theme="@style/Theme.AppCompat.Light.DarkActionBar" -->
+
+            <intent-filter>
+                <action android:name="android.intent.action.TIMELINE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <!--
+        <meta-data
+        android:name="android.app.default_searchable"
+        android:value=".SearchResultsActivity" />
+            -->
+        </activity>
+        <activity
+            android:name=".SearchResultsActivity"
+            android:label="@string/app_name" >
+
+            <!-- to identify this activity as "searchable" -->
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable"
+                android:value=".activities.SearchResultsActivity" />
+        </activity>
+        <activity
+            android:name=".Profile"
+            android:label="@string/Ara" >
+
+            <!-- android:theme="@style/Theme.AppCompat.Light.DarkActionBar" -->
+            <intent-filter>
+                <action android:name="android.intent.action.PROFILE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".TimeLine" />
+        </activity>
+        <activity
+            android:name=".ApplaudSomeone"
+            android:label="@string/title_activity_applaud_someone" >
+
+            <!-- android:theme="@style/Theme.AppCompat.Light.DarkActionBar" -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Profile" />
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_user_profile" >
+
+            <!-- android:theme="@style/Theme.AppCompat.Light.NoActionBar" -->
+
+        </activity>
+        <activity
+            android:name=".Received"
+            android:label="@string/title_activity_user_profile" >
+        </activity>
+        <activity
+            android:name=".Sent"
+            android:label="@string/title_activity_user_profile" >
+        </activity>
+        <activity
+            android:name=".UserProfile"
+            android:label="@string/title_activity_user_profile" >
+
+            <!-- android:theme="@style/Theme.AppCompat.Light.DarkActionBar" -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".TimeLine" />
+        </activity>
+        <activity
+            android:name=".Edit_profile"
+            android:label="@string/title_activity_edit_profile" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".UserProfile" />
+        </activity>
+        <activity
+            android:name=".Employee"
+            android:label="@string/title_activity_employee" >
+        </activity>
+        <activity
+            android:name=".Values"
+            android:label="@string/title_activity_values" >
+        </activity>
+        <activity
+            android:name=".Manager_Tab"
+            android:label="@string/title_activity_manager__tab" >
+        </activity>
+        <activity
+            android:name=".piechart"
+            android:label="@string/title_activity_piechart" >
+        </activity>
+    </application>
+    <activity android:name="org.achartengine.GraphicalActivity"></activity>
+
+</manifest>

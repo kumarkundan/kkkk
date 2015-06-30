@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@mipmap/ccoll"/>
+    <item>
+        <shape
+            android:shape="oval">
+
+           <!-- <gradient android:startColor="#ff53b9a9"
+                android:angle="270"/>-->
+            <stroke android:width="2dp"
+                android:color="#ffffff"/>
+        </shape>
+    </item>
+</layer-list>

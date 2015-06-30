@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Mojokarma</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="img">img</string>
+    <string name="Android">andro</string>
+    <string name="Andro">and</string>
+    <string name="And">Android</string>
+    <string name="Ara">Arvinda de silva</string>
+    <string name="hr">Lead HR,SCB</string>
+    <string name="im">img</string>
+    <string name="rec"><h1><![CDATA[0 \n  ]]></h1><![CDATA[applauds  \n  ]]>recieved</string>
+    <string name="sent"><h1><![CDATA[0 \n  ]]></h1><![CDATA[applauds  \n  ]]>sent</string>
+    <string name="points"><h1><![CDATA[0 \n  ]]></h1><![CDATA[applauds  \n  ]]>points</string>
+    <string name="i">img</string>
+    <string name="title_activity_applaud_someone">ApplaudSomeone</string>
+    <string name="Say">Say something nice to ravi....</string>
+    <string name="search_hint">Type and Search!</string>
+    <string name="title_activity_user_profile">UserProfile</string>
+    <string name="title_activity_splashscreen">splashscreen</string>
+    <string name="applaud">Applauds</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="label1">one</string>
+    <string name="label2">two</string>
+    <string name="body1"> body one</string>
+    <string name="body2">body two</string>
+    <string name="title_activity_edit_profile">EditProfile</string>
+    <string name="title_activity_employee">Employee</string>
+    <string-array name="dropdown">
+        <item>Employee Name</item>
+        <item>Icons</item>
+    </string-array>
+    <string name="title_activity_values">Values</string>
+    <string name="title_activity_manager__tab">Manager_Tab</string>
+    <string name="title_activity_piechart">piechart</string>
+</resources>

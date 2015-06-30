@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="beforeDescendants"
+    android:elevation="2dp"
+    android:id="@+id/frameLayout">
+
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:background="@drawable/card_background"
+    android:descendantFocusability="afterDescendants"
+    android:weightSum="1"
+    android:layout_gravity="center"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+
+           >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/emp_ll2"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Received"
+                    android:textSize="12sp"
+
+                    />
+
+            <TextView
+                android:id="@+id/rectxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="312"
+                android:textSize="30sp"
+                android:textColor="#ffffff"
+                android:textStyle="bold|italic"
+                android:padding="5dp"
+                android:background="@drawable/square"
+                android:gravity="center"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/emp_ll3"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sent"
+                    android:textSize="12sp"
+
+                    />
+                <TextView
+                    android:id="@+id/sendxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="613"
+                    android:textSize="30sp"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold|italic"
+                    android:padding="5dp"
+                    android:background="@drawable/square"
+                    android:gravity="center"/>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/emp_ll4"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tweets"
+                    android:textSize="12sp"
+                    />
+
+                <TextView
+                    android:id="@+id/tweetstxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="987"
+                    android:textSize="30sp"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold|italic"
+                    android:padding="5dp"
+                    android:background="@drawable/square"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+</LinearLayout>
+
+</FrameLayout>
+
+
+
+

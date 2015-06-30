@@ -1,0 +1,32 @@
+<resources>
+
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="AppTheme.Base">
+
+    </style>
+
+    <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/primarycolor</item>
+        <item name="colorPrimaryDark">@color/primarycolorDark</item>
+        <item name="colorAccent">@color/accentcolor</item>
+    </style>
+
+    <style name="MyToolbartheme" parent="ThemeOverlay.AppCompat.Light">
+
+        <item name="android:textColorPrimary">#FFFFFF</item>
+       <item name="android:textColorSecondary">#FFFFFF</item>
+    </style>
+
+    <style name="Widget.MyApp.HeaderBar.Spinner" parent="Widget.AppCompat.Light.Spinner.DropDown.ActionBar">
+        <item name="android:background">?android:selectableItemBackground</item>
+        <item name="android:dropDownSelector">?android:selectableItemBackground</item>
+        <item name="android:divider">@null</item>
+       <!-- <item name="android:overlapAnchor">true</item>-->
+    </style>
+
+</resources>
+
+

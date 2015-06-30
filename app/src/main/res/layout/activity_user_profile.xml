@@ -1,0 +1,144 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/custom_bg"
+    android:clickable="true"
+    android:orientation="vertical">
+    <include
+        android:id="@+id/app_bar"
+        layout="@layout/app_bar">
+    </include>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#ff17a088"
+        android:weightSum="1"
+        android:padding="8dp">
+
+
+        <ImageView
+            android:layout_width="95dp"
+            android:layout_height="100dp"
+            android:id="@+id/profile_image"
+            android:background="@drawable/img"
+            android:contentDescription="@string/img"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Ara"
+            android:id="@+id/txt"
+            android:textSize="25sp"
+            android:padding="5dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_below="@+id/profile_image"
+            android:layout_centerHorizontal="true"
+            android:textColor="#fffff9"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt2"
+            android:text="@string/hr"
+            android:textSize="18sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_below="@+id/txt"
+            android:layout_alignStart="@+id/profile_image"
+            />
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="#ff1bc6aa"
+        android:id="@+id/llp"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/pimg1"
+            android:src="@drawable/nimble"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/pimg2"
+            android:src="@drawable/techexx"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/pimg3"
+            android:src="@drawable/innov"
+            />
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="0dp"
+        android:background="#ff0ca993"
+        >
+        <Button
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="@string/rec"
+            android:id="@+id/btn1"
+            android:layout_marginLeft="0dp"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp"
+            android:layout_weight="0.33"
+            android:background="?android:attr/selectableItemBackground"
+            />
+
+        <Button
+            android:layout_width="127dp"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="@string/sent"
+            android:id="@+id/btn2"
+            android:layout_marginLeft="0dp"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp"
+            android:layout_weight="0.33"
+            android:background="?android:attr/selectableItemBackground"/>
+
+        <Button
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="@string/points"
+            android:id="@+id/btn3"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp"
+            android:layout_weight="0.33"
+            android:background="?android:attr/selectableItemBackground"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:background="#f6e8ff"
+        android:id="@+id/barchart"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
