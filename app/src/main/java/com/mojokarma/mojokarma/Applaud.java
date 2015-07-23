@@ -1,9 +1,11 @@
 package com.mojokarma.mojokarma;
 
+import java.util.Date;
+
 /**
  * Created by kundan on 6/10/2015.
  */
-public class Applaud {
+public class Applaud  {
     /**
      * Item text
      */
@@ -25,9 +27,19 @@ public class Applaud {
      */
     @com.google.gson.annotations.SerializedName("from")
     private String mFrom;
+
+    /**
+     * Item _createdAt
+     */
+   // @SerializedName("_createdAt")
+   // private DateTimeOffset mCreatedAt;
     // private String mContent;
 
-
+    /**
+     * Indicates if the item is completed
+     */
+    @com.google.gson.annotations.SerializedName("complete")
+    private boolean mComplete;
 
 
     /**
@@ -53,15 +65,21 @@ public class Applaud {
      *            The item to
      * @param from
      *            The item from
+     * @param _createdAt
+     *
+     *            The item createdAt
      */
-    public Applaud(String text, String id, String to ,String from) {
+    public Applaud(String text, String id, String to ,String from ,Date _createdAt) {
         this.setContent(text);
         this.setId(id);
         this.setTo(to);
         this.setFrom(from);
+       // this.setCreatedAt(_createdAt);
     }
 
     public final void setFrom(String from) {mFrom=from;}
+
+   // public final void setCreatedAt(Date _createdAt) {mCreatedAt=_createdAt;}
 
     public final void setTo(String to) {mTo=to;}
 
@@ -74,6 +92,8 @@ public class Applaud {
     /**
      * Returns the item text
      */
+
+
     public String getTo() {
         return mTo;
     }
@@ -109,6 +129,20 @@ public class Applaud {
      */
     public final void setId(String id) {
         mId = id;
+    }
+
+    /**
+     * Indicates if the item is marked as completed
+     */
+    public boolean isComplete() {
+        return mComplete;
+    }
+
+    /**
+     * Marks the item as completed or incompleted
+     */
+    public void setComplete(boolean complete) {
+        mComplete = complete;
     }
 
 

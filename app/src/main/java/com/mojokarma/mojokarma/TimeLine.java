@@ -36,6 +36,8 @@ public class TimeLine extends ActionBarActivity{
      */
     private MobileServiceTable<Applaud> mToDoTable;
 
+
+
     /**
      * Adapter to sync the items list with the view
      */
@@ -58,6 +60,9 @@ public class TimeLine extends ActionBarActivity{
         setSupportActionBar(toolbar);
         Date= (TextView) findViewById(R.id.date);
         getCurrentDate();
+
+
+
 
         // Create the Mobile Service Client instance, using the provided
         // Mobile Service URL and key
@@ -112,10 +117,18 @@ public class TimeLine extends ActionBarActivity{
                     final MobileServiceList<Applaud> result = mToDoTable.execute().get();
                     runOnUiThread(new Runnable() {
 
-                        @Override
+                         @Override
                         public void run() {
                             mAdapter.clear();
                             for (Applaud item : result) {
+                            /**  long timeInLong = item.getCreatedAt().getTime();
+                                long currentTime = System.currentTimeMillis();
+                                long diffTime = timeInLong - currentTime;
+                                long diffDays = diffTime / (1000 * 60 * 60 * 24);
+                                int daysdiff = (int) diffDays;
+
+                               Log.v("" + "Due in ", String.valueOf(timeInLong));
+                                //item.setCreatedAt(daysdiff);**/
                                 mAdapter.add(item);
 
                             }
@@ -154,21 +167,30 @@ public class TimeLine extends ActionBarActivity{
         }
 
         if(id==R.id.action_notification){
-            startActivity(new Intent(this,MainActivity.class));
+          //  startActivity(new Intent(this,MainActivityUserTab.class));
         }
 
 
-        if(id==R.id.action_refresh){
-            startActivity(new Intent(this,Employee.class));
+        if(id==R.id.action_dashboard){
+            startActivity(new Intent(this,ManagerDashBoard_MainActivity.class));
         }
 
-        if(id==R.id.action_help){
+        if(id==R.id.action_profile){
             startActivity(new Intent(this,UserProfile.class));
         }
 
+        if(id==R.id.action_refresh){
+            //startActivity(new Intent(this,Profile.class));
+        }
+
+        if(id==R.id.action_addnew){
+            startActivity(new Intent(this,ApplaudSomeone.class));
+        }
+
+
         return super.onOptionsItemSelected(item);
     }
-    public void getCurrentDate(){
+    public void getCurrentDate() {
 
         final Calendar c = Calendar.getInstance();
 
@@ -182,5 +204,6 @@ public class TimeLine extends ActionBarActivity{
                 .append(dd));
 
     }
+
 
 }

@@ -57,9 +57,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="HR,Google,Hyderabad "
+                    android:text=" "
                     android:textSize="18sp"
-                    android:id="@+id/textView"
+                    android:id="@+id/textdesig"
                     android:gravity="bottom"
                     android:textColor="#c73b3b3b"
                     android:layout_alignTop="@+id/to"

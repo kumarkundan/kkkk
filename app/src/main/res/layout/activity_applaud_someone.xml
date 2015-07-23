@@ -5,76 +5,104 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clickable="true"
-    android:background="@drawable/custom_bg"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#5ebfbdbf">
     <include
         android:id="@+id/app_bar"
         layout="@layout/app_bar">
     </include>
 
-
-    <RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.mojokarma.mojokarma.ApplaudSomeone"
-    android:orientation="vertical"
-    android:weightSum="1"
-    android:background="#5ebfbdbf"
-    >
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:background="#26bbb1c0"
-        android:id="@+id/relativeLayout">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/profile_image"
-            android:src="@android:mipmap/sym_def_app_icon"
-            android:layout_marginTop="10dp"
-            android:contentDescription="@string/img"
-            android:layout_weight="1"
-            android:layout_marginLeft="20dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Ara"
-            android:id="@+id/txt"
-            android:textSize="22sp"
-            android:paddingLeft="10dp"
-            android:layout_alignParentLeft="@+id/profile_image"
-            android:layout_alignTop="@+id/profile_image"
-            android:layout_centerHorizontal="true"
-            android:textColor="#ff1bc6aa"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txt2"
-            android:text="@string/hr"
-            android:textSize="18sp"
-            android:layout_alignParentLeft="@+id/profile_image"
-            android:layout_gravity="center_horizontal"
-            android:layout_alignBottom="@+id/profile_image"
-            android:layout_centerHorizontal="true"
-            />
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_action_next_item"
-            android:id="@+id/ib1"
-            android:layout_alignTop="@+id/txt"
-            android:layout_alignParentEnd="true"
-            android:background="?android:attr/selectableItemBackground"/>
-    </RelativeLayout>
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_margin="10dp"
+        android:background="#cb43c797"
+        >
+    <SearchView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchView"
+        />
+
+    </LinearLayout>
+
     <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.mojokarma.mojokarma.ApplaudSomeone"
+        android:orientation="vertical"
+        android:weightSum="1"
+        android:background="#5ebfbdbf"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="#26bbb1c0"
+            android:id="@+id/relativeLayout"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true">
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:id="@+id/profile_image"
+                android:background="@drawable/circle"
+                android:contentDescription="@string/img"
+                android:layout_weight="1"
+                android:layout_marginLeft="20dp"
+                android:layout_alignParentTop="true" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="kristy"
+                android:id="@+id/txtusername"
+                android:textSize="22sp"
+                android:paddingLeft="10dp"
+                android:layout_alignParentLeft="@+id/profile_image"
+                android:layout_alignTop="@+id/profile_image"
+                android:layout_centerHorizontal="true"
+                android:textColor="#ff1bc6aa"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/designationtxt2"
+                android:text="@string/hr"
+                android:textSize="18sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_below="@+id/txtusername"
+                android:layout_centerHorizontal="true" />
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_send_black_24dp"
+                android:id="@+id/ib1"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:paddingRight="10dp"/>
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/donepic"
+                android:id="@+id/ib2"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:paddingRight="10dp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#ffffff"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginBottom="15dp"
-        android:layout_below="@+id/relativeLayout">
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+            android:layout_below="@+id/relativeLayout">
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -153,9 +181,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/Say"
-            android:id="@+id/edt"
+            android:id="@+id/edttxtme"
             android:layout_alignParentTop="true"
             android:layout_alignStart="@+id/linearLayout2" />
     </RelativeLayout>
 </RelativeLayout>
-    </LinearLayout>
+
+</LinearLayout>

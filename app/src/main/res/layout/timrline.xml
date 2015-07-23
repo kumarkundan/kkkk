@@ -57,7 +57,7 @@
         android:layout_height="fill_parent"
         android:layout_width="fill_parent"
         android:divider="@android:color/transparent"
-        android:dividerHeight="10.0sp"
+        android:dividerHeight="5sp"
         android:focusable="true"
         >
 

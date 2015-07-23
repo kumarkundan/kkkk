@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mojokarma.mojokarma.MainActivityUserTab"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/app_bar"
+        android:id="@+id/app_bar">
+    </include>
+
+    <com.mojokarma.mojokarma.SlidingTabLayout
+        android:id="@+id/materialTabHost"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        app:textColor="#FFFFFF"
+        app:primaryColor="@color/primarycolor"
+        app:accentColor="@color/accentcolor"
+        android:layout_below="@+id/app_bar"
+        />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_below="@+id/materialTabHost"/>
+
+</LinearLayout>

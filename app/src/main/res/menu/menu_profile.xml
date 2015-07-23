@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:compat="http://schemas.android.com/apk/res-auto "
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- notification -->
+    <item android:id="@+id/action_notification"
+        android:icon="@drawable/ic_action_name7"
+        android:title="Notification"
+        compat:showAsAction="always"
+       />
+
+
+    <!-- new -->
+    <item android:id="@+id/action_addnew"
+        android:icon="@mipmap/add"
+        android:title="Addnew"
+        compat:showAsAction="always"
+        />
+
+</menu>

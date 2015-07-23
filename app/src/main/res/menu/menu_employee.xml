@@ -1,6 +1,10 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" tools:context="com.mojokarma.mojokarma.Employee">
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="100" app:showAsAction="never" />
+<menu xmlns:compat="http://schemas.android.com/apk/res-auto "
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/action_giftapproval"
+        android:icon="@mipmap/add"
+        android:title="Gift Approval"
+        compat:showAsAction="never"
+        />
+
 </menu>

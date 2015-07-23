@@ -2,12 +2,13 @@ package com.mojokarma.mojokarma;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class apploud extends Activity {
@@ -19,15 +20,67 @@ public class apploud extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_apploud);
 
-        signin=(Button)findViewById(R.id.signin);
+        signin = (Button) findViewById(R.id.signin);
+
+        final EditText email = (EditText) findViewById(R.id.email);
+        final EditText password = (EditText) findViewById(R.id.password);
+
+        final SharedPreferences.Editor editor = getSharedPreferences("login anme", MODE_PRIVATE).edit();
+
+
 
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in=new Intent(apploud.this,TimeLine.class);
-                startActivity(in);
+                String uname = email.getText().toString();
+                String upass = password.getText().toString();
+
+                if (uname.equals("kundan") && upass.equals("1234")) {
+
+                    editor.putString("name", "kundan");
+                    editor.commit();
+
+                    Toast.makeText(getApplicationContext(), "Successfully Logined", Toast.LENGTH_SHORT).show();
+                    Intent in = new Intent(apploud.this, TimeLine.class);
+                    startActivity(in);
+                    finish();
+
+                } else if (uname.equals("suman") && upass.equals("1234")) {
+
+                    editor.putString("name", "suman");
+                    editor.commit();
+
+                    Toast.makeText(getApplicationContext(), "Successfully Logined", Toast.LENGTH_SHORT).show();
+                    Intent in = new Intent(apploud.this, TimeLine.class);
+                    startActivity(in);
+                    finish();
+
+                } else if (uname.equals("vjaysh") && upass.equals("1234")) {
+
+                    editor.putString("name", "vjaysh");
+                    editor.commit();
+
+                    Toast.makeText(getApplicationContext(), "Successfully Logined", Toast.LENGTH_SHORT).show();
+                    Intent in = new Intent(apploud.this, TimeLine.class);
+                    startActivity(in);
+                    finish();
+
+                } else if (uname.equals("imran") && upass.equals("1234")) {
+
+
+                    editor.putString("name", "imran");
+                    editor.commit();
+                    Toast.makeText(getApplicationContext(), "Successfully Logined", Toast.LENGTH_SHORT).show();
+                    Intent in = new Intent(apploud.this, TimeLine.class);
+                    startActivity(in);
+                    finish();
+
+                } else {
+                    Toast.makeText(getApplicationContext(), "Error in Login... PLZ ENTER CORRECT CREDENTIALS", Toast.LENGTH_SHORT).show();
+                }
             }
         });
+
     }
 
    /* @Override

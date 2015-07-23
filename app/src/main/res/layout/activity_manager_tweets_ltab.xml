@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mojokarma.mojokarma.ManagerTweetsLTab"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/app_bar"
+        layout="@layout/app_bar">
+    </include>
+
+
+    <LinearLayout
+        android:id="@+id/linlaHeaderProgress"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/listViewToDo"
+        tools:listitem="@layout/row_employeelist"
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="10.0sp"
+        android:focusable="true"
+        >
+
+    </ListView>
+
+</LinearLayout>

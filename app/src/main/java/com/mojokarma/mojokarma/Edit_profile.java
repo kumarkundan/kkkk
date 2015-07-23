@@ -1,6 +1,7 @@
 package com.mojokarma.mojokarma;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -10,24 +11,46 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.os.AsyncTask;
+import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import org.achartengine.ChartFactory;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
+import com.microsoft.windowsazure.mobileservices.MobileServiceList;
+import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
+
 import org.achartengine.GraphicalView;
-import org.achartengine.chart.BarChart;
-import org.achartengine.model.XYMultipleSeriesDataset;
 import org.achartengine.model.XYSeries;
-import org.achartengine.renderer.XYMultipleSeriesRenderer;
-import org.achartengine.renderer.XYSeriesRenderer;
+
+import java.net.MalformedURLException;
 
 
 public class Edit_profile extends ActionBarActivity {
+
+    private MobileServiceClient mClient;
+
+    private ProfileItemAdapter mAdapter;
+
+    /**
+     * Mobile Service Table used to access data
+     */
+    private MobileServiceTable<Applaud> mToDoTable;
+
+    private MobileServiceTable<User> mUser;
+
+    String x;
+
+    Globals gb = Globals.getInstance();
 
     private GraphicalView mChart;
     private XYSeries series,series1 ;
@@ -36,12 +59,23 @@ public class Edit_profile extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
+
+        final TextView designation = (TextView) findViewById(R.id.de);
+
+
+        //x=gb.getValue();
+        SharedPreferences prefs = getSharedPreferences("login anme", MODE_PRIVATE);
+        x = prefs.getString("name", "");
+
+        TextView username = (TextView) findViewById(R.id.txtusername);
+
+        username.setText(x);
         Toolbar toolbar=(Toolbar)findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Bitmap bm = BitmapFactory.decodeResource(getResources(),
-                R.mipmap.gomez);
+                R.mipmap.kristy);
 
         Bitmap resizedBitmap = Bitmap.createScaledBitmap(bm, 200,200, false);
         Bitmap conv_bm=getCircleBitmap1(resizedBitmap,100);
@@ -49,7 +83,110 @@ public class Edit_profile extends ActionBarActivity {
         ImageView mImage = (ImageView) findViewById(R.id.profile_image);
         mImage.setImageBitmap(conv_bm);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        drawBarChart();
+       // drawBarChart();
+
+        try {
+            mClient = new MobileServiceClient(
+                    "https://apploud.azure-mobile.net/",
+                    "ekaeTCOfAomLFAWiZtuwXltIneSuxo19",
+                    this);
+
+
+            // Get the Mobile Service Table instance to use
+            final String[] desig = new String[1];
+            mToDoTable = mClient.getTable(Applaud.class);
+            mUser = mClient.getTable(User.class);
+
+            new AsyncTask<Void, Void, Void>() {
+                @Override
+                protected Void doInBackground(Void... params) {
+                    try {
+                        final MobileServiceList<User> result =
+                                mUser.where().field("name").eq(x).execute().get();
+                        for (User item : result) {
+                            // Log.i(TAG, "Read object with ID " + item.id);
+                            desig[0] = item.getDesignation();
+                            Log.v("FINALLY DESIGNATION IS", desig[0]);
+
+                        }
+
+                    } catch (Exception exception) {
+                        exception.printStackTrace();
+                    }
+                    return null;
+                }
+
+                @Override
+                protected void onPostExecute(Void aVoid) {
+                    super.onPostExecute(aVoid);
+                    gb.setDesignation(desig[0]);
+                    designation.setText(desig[0]);
+                }
+            }.execute();
+
+            mAdapter = new ProfileItemAdapter(this, R.layout.row_profile);
+            ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo2e);
+            listViewToDo.setAdapter(mAdapter);
+
+            new AsyncTask<Void, Void, Void>() {
+
+                //progress bar thing kkkkkkkkkkkkkkk
+
+                LinearLayout linlaHeaderProgress = (LinearLayout) findViewById(R.id.linlaHeaderProgress2e);
+
+                int result2, result3;
+
+                @Override
+                protected void onPreExecute() {
+                    // SHOW THE SPINNER WHILE LOADING FEEDS
+                    linlaHeaderProgress.setVisibility(View.VISIBLE);
+                }
+
+
+                //now list thing kkkkkkkkkkkkk
+                @Override
+                protected Void doInBackground(Void... params) {
+                    try {
+                        Log.v("Here is x", x);
+                        final MobileServiceList<Applaud> result = mToDoTable.where().field("to").eq(x).execute().get();
+                        result2 = mToDoTable.where().field("to").eq(x).execute().get().getTotalCount();
+                        result3 = mToDoTable.where().field("from").eq(x).execute().get().getTotalCount();
+                        runOnUiThread(new Runnable() {
+
+                            @Override
+                            public void run() {
+                                mAdapter.clear();
+                                for (Applaud item : result) {
+                                    mAdapter.add(item);
+
+                                }
+                                linlaHeaderProgress.setVisibility(View.GONE);
+                            }
+                        });
+                    } catch (Exception exception) {
+                        //createAndShowDialog(exception, "Error");
+                        exception.printStackTrace();
+                    }
+                    return null;
+                }
+
+                @Override
+                protected void onPostExecute(Void aVoid) {
+                    super.onPostExecute(aVoid);
+                    Log.v("TOTALLLL COUUUUUUNT", String.valueOf(result2));
+                    TextView recievedno = (TextView) findViewById(R.id.recte);
+                    recievedno.setText(String.valueOf(result2));
+                    recievedno.setTextSize(20.0f);
+                    recievedno.setTextColor(Color.WHITE);
+                    TextView sentno = (TextView) findViewById(R.id.sente);
+                    sentno.setText(String.valueOf(result3));
+                    sentno.setTextSize(20.0f);
+                    sentno.setTextColor(Color.WHITE);
+                }
+            }.execute();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
     }
 
     private Bitmap getCircleBitmap1(Bitmap bitmap , int pixels) {
@@ -63,7 +200,7 @@ public class Edit_profile extends ActionBarActivity {
         paint.setAntiAlias(true);
         canvas.drawARGB(0, 0, 0, 0);
         paint.setColor(color);
-        canvas.drawCircle(100, 100, 86, paint);
+        canvas.drawCircle(100, 100, 89, paint);
         paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
         canvas.drawBitmap(bitmap, rect, rect, paint);
         bitmap.recycle();
@@ -71,7 +208,7 @@ public class Edit_profile extends ActionBarActivity {
     }
 
 
-    private  void drawBarChart(){
+    /**private  void drawBarChart(){
         // X-axis data
         double years=12;
         // Y-axis data arrays
@@ -83,7 +220,7 @@ public class Edit_profile extends ActionBarActivity {
             series.add(i, Maxpoints[i]);
         }
         // Create XYSeries for the second data array
-        series1 = new XYSeries("Received Points");
+        series1 = new XYSeries("ReceivedUserTab Points");
         for(int i=0;i<years;i++){
             series1.add(i, Pointsrec[i]);
         }
@@ -128,7 +265,7 @@ public class Edit_profile extends ActionBarActivity {
         // Add the bar chart view to the layout to show
         LinearLayout chartlayout=(LinearLayout)findViewById(R.id.barchart);
         chartlayout.addView(mChart);
-    }
+    }**/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

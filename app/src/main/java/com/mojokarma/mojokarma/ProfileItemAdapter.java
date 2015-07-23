@@ -10,12 +10,20 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.os.AsyncTask;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
+import com.microsoft.windowsazure.mobileservices.MobileServiceList;
+import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
+
+import java.net.MalformedURLException;
 
 /**
  * Created by kundan on 6/23/2015.
@@ -32,6 +40,10 @@ import android.widget.TextView;
      * Adapter View layout
      */
     int mrLayoutResourceId;
+
+    private MobileServiceTable<User> mUser;
+
+    private MobileServiceClient mClient;
 
     LayoutInflater mrInflater;
     public ProfileItemAdapter(Context context, int layoutResourceId) {
@@ -50,16 +62,72 @@ import android.widget.TextView;
 
         final Applaud currentItem = getItem(position);
 
+
         if (row == null) {
             LayoutInflater inflater = ((Activity) mrContext).getLayoutInflater();
             row = inflater.inflate(mrLayoutResourceId, parent, false);
         }
 
         row.setTag(currentItem);
-        final TextView message = (TextView) row.findViewById(R.id.profiletxt);
-        message.setText(currentItem.getContent());
+
         final TextView to = (TextView) row.findViewById(R.id.profilefrom);
+        final TextView message = (TextView) row.findViewById(R.id.profiletxt);
+
+        message.setText(currentItem.getContent());
+
         to.setText(currentItem.getFrom());
+
+        Log.v("FINALLY OOOUUTT", "");
+        //Profile itemp=new Profile();
+//        itemp.giveMeDesignation(row,currentItem);
+
+        try {
+            mClient = new MobileServiceClient(
+                    "https://apploud.azure-mobile.net/",
+                    "ekaeTCOfAomLFAWiZtuwXltIneSuxo19",
+                    getContext());
+
+
+        // Get the Mobile Service Table instance to use
+        final String[] design = new String[1];
+        mUser = mClient.getTable(User.class);
+        final TextView designation = (TextView) row.findViewById(R.id.designnnnnnattiion);
+
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... params) {
+                try {
+                    final MobileServiceList<User> result =
+                            mUser.where().field("name").eq(currentItem.getFrom()).execute().get();
+                    for (User item : result) {
+                        // Log.i(TAG, "Read object with ID " + item.id);
+                        design[0] = item.getDesignation();
+                        Log.v("FINALLY DESIGNATION IS", design[0]);
+
+                    }
+
+                } catch (Exception exception) {
+                    exception.printStackTrace();
+                }
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                super.onPostExecute(aVoid);
+                // gb.setDesignation(desig[0]);
+                designation.setText(design[0]);
+            }
+        }.execute();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
+
+
+
+
+
         Bitmap bm2 = BitmapFactory.decodeResource(row.getResources(),
                 R.mipmap.gomez);
 

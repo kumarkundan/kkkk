@@ -1,164 +1,248 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".MainActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:clickable="true"
     android:background="@drawable/custom_bg"
-    android:orientation="vertical">
+    android:clickable="true"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
     <include
         android:id="@+id/app_bar"
-        layout="@layout/app_bar">
-    </include>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="170dp"
-        android:orientation="vertical"
-        android:background="#ff17a088"
-        android:weightSum="1"
-        android:paddingTop="5dp"
-        android:gravity="center">
+        layout="@layout/app_bar"></include>
 
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:id="@+id/profile_image"
-            android:contentDescription="@string/img"
-            android:layout_gravity="center"
-            android:scaleType="centerCrop"
-            android:background="@drawable/img"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-
-            />
-
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="kristy"
-            android:id="@+id/txt"
-            android:textSize="25sp"
-            android:padding="5dp"
-            android:layout_gravity="center_horizontal"
-            android:textColor="#fffff9"
-            android:layout_below="@+id/profile_image"
-            android:layout_centerHorizontal="true" />
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txt2"
-            android:text="@string/hr"
-            android:textSize="18sp"
-            android:gravity="center_horizontal"/>
-
-    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:background="#ff1bc6aa"
+        android:background="#ff17a088"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="5dp"
+        android:weightSum="1">
+
+        <ImageView
+            android:id="@+id/profile_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:background="@drawable/img"
+            android:contentDescription="@string/img"
+            android:scaleType="centerCrop"
+
+            />
+
+
+        <TextView
+            android:id="@+id/txtusername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/profile_image"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:padding="5dp"
+            android:text="kristy"
+            android:textColor="#fffff9"
+            android:textSize="25sp" />
+
+
+        <TextView
+            android:id="@+id/txt2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text=""
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/llp"
-        android:gravity="center">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ff1bc6aa"
+        android:gravity="center"
+        android:padding="10dp">
+
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
             android:id="@+id/pimg1"
-            android:src="@drawable/nimble"
-           />
-        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="40dp"
+            android:src="@drawable/nimble" />
+
+        <ImageView
             android:id="@+id/pimg2"
-            android:src="@drawable/techexx"
-            />
-        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="40dp"
+            android:src="@drawable/techexx" />
+
+        <ImageView
             android:id="@+id/pimg3"
-            android:src="@drawable/innov"
-            />
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:src="@drawable/innov" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="57dp"
-        android:padding="0dp"
+        android:layout_height="60dp"
         android:background="#ff0ca993"
-        >
-        <Button
-            android:layout_width="130dp"
-            android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:text="@string/rec"
-            android:id="@+id/btn1"
-            android:layout_marginLeft="0dp"
-            android:paddingLeft="0dp"
-            android:paddingRight="0dp"
-            android:layout_weight="0.33"
-            android:background="?android:attr/selectableItemBackground"
-            />
+        android:padding="0dp"
+        android:weightSum="4">
 
-        <Button
-            android:layout_width="127dp"
+        <RelativeLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:text="@string/sent"
-            android:id="@+id/btn2"
-            android:layout_marginLeft="0dp"
-            android:paddingLeft="0dp"
-            android:paddingRight="0dp"
-            android:layout_weight="0.33"
-            android:background="?android:attr/selectableItemBackground"/>
+            android:layout_weight="1">
 
-        <Button
-            android:layout_width="130dp"
+            <TextView
+                android:id="@+id/rect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:background="?android:attr/selectableItemBackground"
+                android:text="0"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btn1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="0dp"
+                android:layout_weight="0.33"
+                android:background="?android:attr/selectableItemBackground"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp"
+                android:text="@string/rec"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:text="@string/points"
-            android:id="@+id/btn3"
-            android:paddingLeft="0dp"
-            android:paddingRight="0dp"
-            android:layout_weight="0.33"
-            android:background="?android:attr/selectableItemBackground"/>
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/sent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:background="?android:attr/selectableItemBackground"
+                android:text="0"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btn2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="0dp"
+                android:layout_weight="0.33"
+                android:background="?android:attr/selectableItemBackground"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp"
+                android:text="@string/sent"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/twrec"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:background="?android:attr/selectableItemBackground"
+                android:text="0"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btn3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="0dp"
+                android:layout_weight="0.33"
+                android:background="?android:attr/selectableItemBackground"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp"
+                android:text="@string/tweets"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/appp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:background="?android:attr/selectableItemBackground"
+                android:text="0"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btn4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_weight="0.33"
+                android:background="?android:attr/selectableItemBackground"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp"
+                android:text="@string/points"
+                android:textSize="12sp" />
+        </RelativeLayout>
 
     </LinearLayout>
-    <LinearLayout
-        xmlns:tools="http://schemas.android.com/tools"
+
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ff5db9a6"
         android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/linlaHeaderProgress2"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:visibility="gone" >
+        <LinearLayout
+            android:id="@+id/linlaHeaderProgress2"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
 
-        <ProgressBar
-            style="?android:attr/progressBarStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|center_horizontal" />
-    </LinearLayout>
+            <ProgressBar
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal" />
+        </LinearLayout>
 
-    <ListView
-        android:id="@+id/listViewToDo2"
-        tools:listitem="@layout/row_profile"
-        android:layout_height="fill_parent"
-        android:layout_width="fill_parent"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="10.0sp"
-        android:focusable="true"
-        >
+        <ListView
+            android:id="@+id/listViewToDo2"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="10.0sp"
+            android:focusable="true"
+            tools:listitem="@layout/row_profile">
 
-    </ListView>
+        </ListView>
 
     </LinearLayout>
 </LinearLayout>

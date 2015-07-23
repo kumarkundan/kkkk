@@ -1,7 +1,5 @@
 package com.mojokarma.mojokarma;
 
-import android.app.Application;
-
 /**
  * Created by kundan on 6/23/2015.
  */
@@ -20,9 +18,10 @@ public class Globals {
     }
 
     private String notification_index;
+    private String desig;
 
 
-    private Globals() {
+    protected Globals() {
 
     }
 
@@ -36,6 +35,12 @@ public class Globals {
         this.notification_index = notification_index;
     }
 
+    public void setDesignation(String desig) {
+        this.desig = desig;
+    }
+    public String getDesignation() {
+        return desig;
+    }
 
 
 }

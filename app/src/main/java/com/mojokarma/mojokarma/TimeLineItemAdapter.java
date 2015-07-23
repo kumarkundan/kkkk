@@ -61,12 +61,21 @@ public class TimeLineItemAdapter extends ArrayAdapter<Applaud> {
         }
 
         row.setTag(currentItem);
-        final TextView message = (TextView) row.findViewById(R.id.txt);
+        final TextView message = (TextView) row.findViewById(R.id.txtusername);
         message.setText(currentItem.getContent());
         final TextView from = (TextView) row.findViewById(R.id.from);
         from.setText(currentItem.getFrom());
         final TextView to = (TextView) row.findViewById(R.id.to);
         to.setText(currentItem.getTo());
+
+        final TextView timing = (TextView) row.findViewById(R.id.timing);
+        //String time=currentItem.getCreatedAt();
+
+//
+      // Log.v("TIMING KKKKKKKKKKK", String.valueOf(currentItem.getCreatedAt()));
+       //String msg = (( String.valueOf(currentItem.getCreatedAt())==null)?"Login failed!":"not null");
+       // Log.i("Login Error1",msg);
+       // timing.setText(msg);
         // checkBox.setChecked(false);
         //checkBox.setEnabled(true);
 
@@ -120,10 +129,15 @@ public class TimeLineItemAdapter extends ArrayAdapter<Applaud> {
         ImageView mImage2 = (ImageView)row. findViewById(R.id.imageView2);
         mImage2.setImageBitmap(conv_bm2);
 
+
+        Bitmap bm = BitmapFactory.decodeResource(row.getResources(),
+                R.mipmap.image);
+        Bitmap resizedBitmap= Bitmap.createScaledBitmap(bm, 200, 200, false);
+        Bitmap conv_bm=getCircleBitmap(resizedBitmap, 100);
+        // set circle bitmap
+        ImageView mImage = (ImageView)row. findViewById(R.id.imageView);
+        mImage.setImageBitmap(conv_bm);
         return row;
-
-
-
     }
     private Bitmap getCircleBitmap(Bitmap bitmap , int pixels) {
         final Bitmap output = Bitmap.createBitmap(bitmap.getWidth(),
@@ -136,7 +150,7 @@ public class TimeLineItemAdapter extends ArrayAdapter<Applaud> {
         paint.setAntiAlias(true);
         canvas.drawARGB(0, 0, 0, 0);
         paint.setColor(color);
-        canvas.drawCircle(100, 100, 86, paint);
+        canvas.drawCircle(100, 100, 88, paint);
         paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
         canvas.drawBitmap(bitmap, rect, rect, paint);
         bitmap.recycle();

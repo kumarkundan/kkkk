@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:descendantFocusability="beforeDescendants"
+    android:elevation="3dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card_background"
+        android:descendantFocusability="afterDescendants"
+        android:weightSum="1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp" >
+                <TextView
+                    android:id="@+id/profilefrom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:text="Mahesh"
+                    android:textSize="20sp"
+                    android:gravity="bottom"
+                    android:textColor="#FF1BC6AA"
+                    android:focusable="false"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Project Lead  "
+                    android:textSize="18sp"
+                    android:id="@+id/desigstab"
+                    android:gravity="bottom"
+                    android:textColor="#c73b3b3b"
+                    android:layout_below="@+id/profilefrom"
+                    android:layout_alignParentStart="true" />
+
+                <TextView
+                    android:id="@+id/stabreccount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="25sp"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold|italic"
+                    android:padding="5dp"
+                    android:background="@drawable/square"
+                    android:gravity="center"
+
+                    android:layout_gravity="right"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true" />
+
+
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+</FrameLayout>
+

@@ -1,20 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="fill_parent"
+    android:orientation="horizontal" android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#ff1bc6aa"
-    android:gravity="center">
+    android:gravity="center"
+    android:weightSum="1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="App"
+        android:id="@+id/title2"
+        android:textColor="#ff1bc6aa"
+        android:textSize="50sp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:background="#FFFFFF" />
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/applaud"
+        android:text="reiz"
         android:id="@+id/title"
         android:textColor="#FFFFFF"
         android:textSize="50sp"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_weight="0.07" />
+
 
 </LinearLayout>
